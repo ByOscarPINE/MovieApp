@@ -1,0 +1,7 @@
+{
+  "name": "thegreatmovie",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
