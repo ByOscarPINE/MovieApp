@@ -18,4 +18,11 @@ export class SeriesService {
     
     return this._http.get<Result>(`${this.base_url}/tv/popular?api_key=${this.api_key}`);
   }
+
+  getSerie(id : number) {
+
+    console.log(`${this.base_url}/tv/${id}?api_key=${this.api_key}`);
+    
+    return this._http.get<any>(`${this.base_url}/tv/${id}?api_key=${this.api_key}`);
+  }
 }

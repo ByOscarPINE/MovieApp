@@ -1,5 +1,5 @@
   <ion-card class="my_card">
-    <img (click)="goToSerieDetails()" class="my_image_card" src="https://image.tmdb.org/t/p/w500{{serie.poster_path}}" alt="">
+    <img (click)="goToSerieDetails(serie.id)" class="my_image_card" src="https://image.tmdb.org/t/p/w500{{serie.poster_path}}" alt="">
     <ion-card-content class="ion-no-padding">
       <ion-grid class="ion-no-padding" >
         <ion-row>

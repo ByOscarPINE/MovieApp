@@ -23,8 +23,10 @@ export class SerieCardComponent  implements OnInit {
 
   ngOnInit() {}
 
-  goToSerieDetails() {
-    this._router.navigateByUrl('/serie-detail')
+  goToSerieDetails(id: number) {
+    this._router.navigateByUrl(`/serie-detail/${id}`)
   }
+
+
 
 }
