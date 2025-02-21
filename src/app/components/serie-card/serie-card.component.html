@@ -1,10 +1,10 @@
   <ion-card class="my_card">
-    <img class="my_image_card" src="https://www.bestmovieposters.co.uk/wp-content/uploads/2019/01/RW4Eh9IR.jpeg" alt="">
+    <img (click)="goToSerieDetails()" class="my_image_card" src="https://image.tmdb.org/t/p/w500{{serie.poster_path}}" alt="">
     <ion-card-content class="ion-no-padding">
       <ion-grid class="ion-no-padding" >
         <ion-row>
           <ion-col size="8" class="ion-align-self-center ion-text-center">
-            Breaking Bad
+            {{serie.name.length > 15 ? serie.name.substring(0, 12) + '...' : serie.name}}
           </ion-col>
           <ion-col size="4" class="ion-text-end">
             <ion-button fill="clear" color="danger" size="small" >
@@ -13,6 +13,5 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-
     </ion-card-content>
   </ion-card>

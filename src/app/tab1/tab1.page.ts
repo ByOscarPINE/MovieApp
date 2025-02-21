@@ -1,3 +1,4 @@
+import { Serie } from './../intefaces';
 import { Component, inject } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonCol, IonButton, IonIcon, IonCardContent, IonGrid, IonRow, IonCard } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
@@ -17,14 +18,16 @@ import { ToolbarComponent } from "../components/toolbar/toolbar.component";
 export class Tab1Page {
 
   private _seriesService = inject(SeriesService);
+  miSeries : Serie[] = [];
+
   constructor() {
     addIcons({ heart});
 
     this._seriesService.getPopularSeries()
     .subscribe(res => {
       console.log(res);
+      this.miSeries = res.results;
     })
 
   }
-
 }

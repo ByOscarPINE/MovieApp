@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonButton, IonIcon } from "@ionic/angular/standalone";
+import { addIcons } from 'ionicons';
+import { heartOutline } from 'ionicons/icons';
+import { Serie } from 'src/app/intefaces';
 
 @Component({
   selector: 'app-serie-card',
@@ -10,8 +14,17 @@ import { IonCard, IonCardContent, IonGrid, IonRow, IonCol, IonButton, IonIcon } 
 })
 export class SerieCardComponent  implements OnInit {
 
-  constructor() { }
+  @Input({required: true}) serie!: Serie;
+  private _router = inject(Router)
+
+  constructor() { 
+    addIcons({heartOutline});
+  }
 
   ngOnInit() {}
+
+  goToSerieDetails() {
+    this._router.navigateByUrl('/serie-detail')
+  }
 
 }

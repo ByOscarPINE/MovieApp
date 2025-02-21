@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Result } from '../intefaces';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,8 @@ export class SeriesService {
   constructor() { }
 
   getPopularSeries() {
-    return this._http.get('https://api.themoviedb.org/3/tv/popular?api_key=6a3a3bd38a906c10b52484f3a00f9af6');
+    console.log(`${this.base_url}/tv/popular?api_key=${this.api_key}`);
+    
+    return this._http.get<Result>(`${this.base_url}/tv/popular?api_key=${this.api_key}`);
   }
 }
