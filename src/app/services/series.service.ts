@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Result } from '../intefaces';
+import { Result, SerieDetail } from '../intefaces';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,6 @@ export class SeriesService {
 
     console.log(`${this.base_url}/tv/${id}?api_key=${this.api_key}`);
     
-    return this._http.get<any>(`${this.base_url}/tv/${id}?api_key=${this.api_key}`);
+    return this._http.get<SerieDetail>(`${this.base_url}/tv/${id}?api_key=${this.api_key}`);
   }
 }

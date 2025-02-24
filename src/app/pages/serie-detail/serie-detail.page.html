@@ -5,9 +5,39 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">serie-detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card style="background-color: #f2f2f2;">
+    <img alt="Silhouette of mountains"src="https://image.tmdb.org/t/p/w500{{miSerie?.poster_path}}" />
+    <ion-card-header>
+      <ion-card-title>{{miSerie?.name}}</ion-card-title>
+      <ion-card-subtitle>{{miSerie?.original_name}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-text>Generos:</ion-text>
+            <ion-list inset="true" lines="none">
+              @for (item of miSerie?.genres; track $index) {
+                <ion-item>
+                  <ion-icon icon="pin-outline"></ion-icon>
+                  <ion-label>{{item.name}}</ion-label>
+                </ion-item>
+              }
+            </ion-list>
+          </ion-col>
+          <ion-col>
+            <ion-text>Popularidad:</ion-text>
+            <ion-list lines="none" inset="true">
+              <ion-item>
+                <ion-icon icon="man-outline"></ion-icon>
+                <ion-label >{{miSerie?.popularity}}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      {{miSerie?.overview}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
