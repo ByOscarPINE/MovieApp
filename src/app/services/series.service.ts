@@ -27,6 +27,6 @@ export class SeriesService {
   }
 
   buscarSerie(query:string){
-    return this._http.get<Result>(`${this.base_url}/search/tv?query=${query}&api_Key=${this.api_key}&include_adult=true`);
+    return this._http.get<Result>(`${this.base_url}/search/tv?query=${query}&api_key=${this.api_key}&include_adult=true`);
   }
 }
