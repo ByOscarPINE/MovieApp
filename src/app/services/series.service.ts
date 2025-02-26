@@ -14,15 +14,19 @@ export class SeriesService {
   constructor() { }
 
   getPopularSeries() {
-    console.log(`${this.base_url}/tv/popular?api_key=${this.api_key}`);
+    console.log(`${this.base_url}/tv/top_rated?api_key=${this.api_key}`);
     
-    return this._http.get<Result>(`${this.base_url}/tv/popular?api_key=${this.api_key}`);
+    return this._http.get<Result>(`${this.base_url}/tv/top_rated?api_key=${this.api_key}&language=es-ES`);
   }
 
   getSerie(id : number) {
 
     console.log(`${this.base_url}/tv/${id}?api_key=${this.api_key}`);
     
-    return this._http.get<SerieDetail>(`${this.base_url}/tv/${id}?api_key=${this.api_key}`);
+    return this._http.get<SerieDetail>(`${this.base_url}/tv/${id}?api_key=${this.api_key}&language=es-ES`);
+  }
+
+  buscarSerie(query:string){
+    return this._http.get<Result>(`${this.base_url}/search/tv?query=${query}&api_Key=${this.api_key}&include_adult=true`);
   }
 }
