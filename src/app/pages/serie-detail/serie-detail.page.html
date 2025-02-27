@@ -40,4 +40,19 @@
       {{miSerie?.overview}}
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <ion-text>Actores:</ion-text>
+    <ion-grid>
+      <ion-row>
+        @for (item of miActor; track $index) {
+          <ion-col sizeSm="4">
+            <ion-card>
+              <img alt="Silhouette of mountains" src="https://image.tmdb.org/t/p/w500{{item.profile_path}}" />
+                  <ion-card-title>{{item.name}}</ion-card-title>
+            </ion-card>
+          </ion-col>
+        }
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

@@ -20,6 +20,7 @@ export class SerieDetailPage implements OnInit {
   private _activeRoute = inject(ActivatedRoute)
   private _serviesS = inject(SeriesService)
   miSerie!: SerieDetail;
+  miActor!: any;
   constructor() {
     addIcons({
       manOutline,
@@ -28,6 +29,7 @@ export class SerieDetailPage implements OnInit {
     this._activeRoute.params.subscribe(params => {
       // console.log(params['id'])
       this.getS(params['id'])
+      this.getActor(params['id'])
     })
    }
 
@@ -35,6 +37,13 @@ export class SerieDetailPage implements OnInit {
     this._serviesS.getSerie(parseInt(id)).subscribe(serie => {
       console.log(serie);
       this.miSerie = serie;
+    })
+   }
+
+   getActor(id: string){
+    this._serviesS.getActors(parseInt(id)).subscribe(res => {
+      console.log(res)
+      this.miActor = res.cast;
     })
    }
 

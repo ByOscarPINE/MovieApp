@@ -29,4 +29,10 @@ export class SeriesService {
   buscarSerie(query:string){
     return this._http.get<Result>(`${this.base_url}/search/tv?query=${query}&api_key=${this.api_key}&include_adult=true`);
   }
+
+  getActors(id: number){
+    console.log(`${this.base_url}/tv/${id}/credits?language=en-US`);
+    
+    return this._http.get<any>(`${this.base_url}/tv/${id}/credits?api_key=${this.api_key}&language=en-US`)
+  }
 }
