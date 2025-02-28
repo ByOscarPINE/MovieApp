@@ -3,9 +3,19 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-searchbar debounce="250" (ionInput)="buscarSerie($event)" placeholder="Buscar tu serie"></ion-searchbar>
 
+  <ion-grid >
+    <ion-row>
+      @for (item of series; track $index) {
+        <ion-col size="6">
+          <app-serie-card [serie]="item"></app-serie-card>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
   <app-explore-container name="Tab 3 page"></app-explore-container>
 </ion-content>

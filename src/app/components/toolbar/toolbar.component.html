@@ -3,5 +3,10 @@
     <ion-title>
       {{title}}
     </ion-title>
+    @if (state === true) {
+      <ion-buttons slot="end">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons> 
+    }
     </ion-toolbar>
 </ion-header>

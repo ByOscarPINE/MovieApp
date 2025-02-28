@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, inject } from '@angular/core';
-import { IonTitle, IonToolbar, IonHeader, IonContent, IonSearchbar } from "@ionic/angular/standalone";
+import { IonTitle, IonToolbar, IonHeader, IonContent, IonSearchbar, IonButtons, IonBackButton } from "@ionic/angular/standalone";
 import { SeriesService } from 'src/app/services/series.service';
 
 @Component({
@@ -7,11 +7,11 @@ import { SeriesService } from 'src/app/services/series.service';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
   standalone: true,
-  imports: [IonSearchbar, IonContent, IonHeader, IonToolbar, IonTitle, ]
+  imports: [IonBackButton, IonButtons, IonSearchbar, IonContent, IonHeader, IonToolbar, IonTitle, ]
 })
 export class ToolbarComponent  implements OnInit {
 @Input() title!: string;
-
+@Input() state!: boolean;
 private _serieS = inject(SeriesService)
 
   constructor() {

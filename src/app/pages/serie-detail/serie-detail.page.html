@@ -1,8 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>serie-detail</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-toolbar title="{{miSerie?.name}}" [state]="true"></app-toolbar>
 
 <ion-content [fullscreen]="true">
   <ion-card style="background-color: #f2f2f2;">
@@ -41,16 +37,16 @@
     </ion-card-content>
   </ion-card>
   <ion-card>
-    <ion-text>Actores:</ion-text>
+    <ion-title>Actores:</ion-title>
     <ion-grid>
       <ion-row>
         @for (item of miActor; track $index) {
-          <ion-col sizeSm="4">
-            <ion-card>
+          <ion-col size="4" size-sm="4">
+            <ion-card style="height: 100%;">
               <img alt="Silhouette of mountains" src="https://image.tmdb.org/t/p/w500{{item.profile_path}}" />
-                  <ion-card-title>{{item.name}}</ion-card-title>
+              <ion-card-title>{{item.name}}</ion-card-title>
             </ion-card>
-          </ion-col>
+            </ion-col>
         }
       </ion-row>
     </ion-grid>

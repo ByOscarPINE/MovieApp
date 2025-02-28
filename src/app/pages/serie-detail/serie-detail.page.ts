@@ -7,13 +7,14 @@ import { SeriesService } from 'src/app/services/series.service';
 import { SerieDetail } from 'src/app/intefaces';
 import { addIcons } from 'ionicons';
 import { manOutline, pinOutline } from 'ionicons/icons';
+import { ToolbarComponent } from "../../components/toolbar/toolbar.component";
 
 @Component({
   selector: 'app-serie-detail',
   templateUrl: './serie-detail.page.html',
   styleUrls: ['./serie-detail.page.scss'],
   standalone: true,
-  imports: [IonListHeader, IonIcon, IonItem, IonList, IonRow, IonCol, IonLabel, IonText, IonGrid, IonCardSubtitle, IonCardContent, IonCardHeader, IonCardTitle, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonListHeader, IonIcon, IonItem, IonList, IonRow, IonCol, IonLabel, IonText, IonGrid, IonCardSubtitle, IonCardContent, IonCardHeader, IonCardTitle, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ToolbarComponent]
 })
 export class SerieDetailPage implements OnInit {
 
@@ -27,7 +28,6 @@ export class SerieDetailPage implements OnInit {
       pinOutline
     })
     this._activeRoute.params.subscribe(params => {
-      // console.log(params['id'])
       this.getS(params['id'])
       this.getActor(params['id'])
     })
